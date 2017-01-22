@@ -14,6 +14,7 @@ then
 	echo "Good job!"
 else
 	echo "Sorry, too slow."
+fi
 
 x=$(expr "$a" + "$b")
 echo $a + $b = $x
