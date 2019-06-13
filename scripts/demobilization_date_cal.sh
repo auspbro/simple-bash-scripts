@@ -14,13 +14,14 @@ echo "How many days before your demobilization date..."
 read -p "Please input your demobilization date:(ex>20190101)" date_input
 date_d=$(echo $date_input | grep '[0-9]\{8\}')
 
+# check input format.
 if [ "$date_d" == "" ];then
         echo "You input wrong date format."
         exit 1
 fi
 
-declare -i date_dem=`date --date="$date_input" +%s`
-declare -i date_now=`date +%s`
+declare -i date_dem=`date --date="$date_input" +%s`     # caculate input date to seconds
+declare -i date_now=`date +%s`      # caculate now date to seconds
 declare -i date_total_s=$(($date_dem-$date_now))
 declare -i date_d=$(($date_total_s/60/60/24))
 
